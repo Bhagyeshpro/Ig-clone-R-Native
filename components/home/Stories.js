@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Text, StyleSheet, ScrollView, Image } from 'react-native'
+import { View, Text, StyleSheet, ScrollView, Image, TouchableOpacity } from 'react-native'
 
 import USERS from "../../data/users"
 
@@ -11,15 +11,16 @@ const Stories = () => {
                 showsHorizontalScrollIndicator={false}
             >
             {USERS.map((story, index) => (
+                <TouchableOpacity>
                 <View style={styles.storyContainer}  key={index}>
                 <Image source={{ uri: story.image}} 
                 style={styles.story} />
                 <Text style={{color: "#fff", fontSize: 12}}>{
                     story.user.length > 10 ? story.user.slice(0, 10).toLowerCase() + "..." :
                     story.user.toLowerCase()
-
                 }</Text>
                 </View>
+                </TouchableOpacity>
             ))}
             </ScrollView>
         </View>
