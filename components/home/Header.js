@@ -10,14 +10,14 @@ const Header = () => {
             </TouchableOpacity>
             <View style={styles.headerRight}>
                 <TouchableOpacity>
-                    <AntDesign style={styles.icon} name="plussquareo" size={25} color="white" />
+                    <AntDesign style={styles.icon} name="plussquareo" size={24} color="white" />
                 </TouchableOpacity>
                 
                 <TouchableOpacity>
                     <View style={styles.unReadBadge}>
                         <Text style={styles.unReadBadgeText}>11</Text>
                     </View>
-                <Entypo style={styles.icon} name="direction" size={25} color="white" />
+                <Entypo style={styles.icon} name="direction" size={24} color="white" />
                 </TouchableOpacity>
             </View>             
         </View>
@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
     contianer: {
         justifyContent: "space-between",
         alignItems: "center",
-        marginHorizontal: 20,
+        marginHorizontal: 10,
         // marginRight: 40,
         flexDirection: "row",
     },
