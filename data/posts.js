@@ -50,6 +50,7 @@ const POSTS = [
                 user: "mihirpaunikar",
                 comment: "Wow Man I Would Love To Invest In Your Twitter..."
             },
+            
         ]
     }
 ]

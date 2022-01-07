@@ -1,13 +1,13 @@
 import React from 'react'
 import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native'
 import { Entypo, EvilIcons, Feather, FontAwesome5  } from '@expo/vector-icons';
+import { Divider } from 'react-native-elements/dist/divider/Divider'
 
 
 const Post = ({post}) => {
     return (
         <View style={{marginBottom: 10}}>
-         <Text  ellipsizeMode='middle' style={{color: "#828282", fontSize: 5,marginHorizontal: 2, marginBottom: 5}} >__________________________________________________________________________________________________________________________________________________________________________________</Text>
-            {/* <Divider/>  */}
+            <Divider  style={{marginVertical:10}}/> 
             <PostHeader post={post} />
             <PostImage post={post} />
             <View style={{marginHorizontal: 2}}>
