@@ -49,7 +49,7 @@ const FormikPostUploader = () => {
                     placeholderTextColor="gray"
                     onChangeText={handleChange("imageURL")}
                     onBlur={handleBlur("imageURL")}
-                    style={{color: "#fff", fontSize: 15, marginTop: 10}}
+                    style={{color: "#ffffff", fontSize: 15, marginTop: 10}}
                     value={values.imageURL}
                 />
                 {errors.imageURL && (
