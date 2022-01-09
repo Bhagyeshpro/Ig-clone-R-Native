@@ -38,15 +38,15 @@ const PostHeader = ({post}) => {
     )
 }
 
-const PostImage = ({post}) => (
-    <View style={styles.postImageContainer}>
-        
+const PostImage = ({post}) => {
+    return (
+        <View style={styles.postImageContainer}>
     <Image
         source={{uri: post.imageURL}}
         style={{height: "100%", resizeMode: "cover", width: "100%" }}
     />
     </View>
-)
+)}
 
 
 const PostFooter = ({post}) => (
@@ -82,8 +82,9 @@ const Caption = ({post}) => (
     </View>
 )
 
-const CommentSection = ({posts}) => (
-    <View>
+const CommentSection = ({posts}) => {
+    return (
+        <View>
     {/* !!posts return false or true rather than 1 and 0  */}
     {!!posts.comments.length && (
     <Text style={{color: "gray", marginLeft: 13, marginTop: 1}}>
@@ -92,7 +93,8 @@ const CommentSection = ({posts}) => (
     </Text>
     )}
     </View>
-)
+    )
+}
 
 const Comments = ({posts}) => (
     <>
