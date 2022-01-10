@@ -1,11 +1,8 @@
-import { SafeAreaView, StyleSheet, Text, View } from 'react-native';
-import HomeScreen from './screens/HomeScreen';
-import NewPost from './screens/NewPost';
+import SignedInStack from "./navigation"
 
 export default function App() {
   return (
-      // <HomeScreen/>
-      <NewPost/>
+    <SignedInStack/>
   );
 }
 

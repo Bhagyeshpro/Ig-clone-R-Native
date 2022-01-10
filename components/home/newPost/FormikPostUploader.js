@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Button, StyleSheet, Text, TextInput, View } from 'react-native'
+import { Button, StyleSheet, Text, TextInput, View, SafeAreaView } from 'react-native'
 import * as Yup from 'yup'
 import { Formik } from 'formik'
 import { Image } from 'react-native';
@@ -21,7 +21,7 @@ const handleImagePress = () => {
 }
 
 
-const FormikPostUploader = () => {
+const FormikPostUploader = ({navigation}) => {
     const [thumbnailURL, setThumbnailURL] = useState(PLACEHOLDER_IMG)
     
     const pickImage = async () => {
@@ -43,7 +43,13 @@ const FormikPostUploader = () => {
     return (
         <Formik
             initialValues={{caption: "", imageURL: ""}}
-            onSubmit={values => console.log(values)}
+            onSubmit={
+                values => {
+                    console.log(values)
+                    console.log("Your Post Is Submitted Successfully!")
+                    navigation.goBack()
+                }
+            }
             validationSchema={uploadPostSchema}
             validateOnMount={true}
         >   

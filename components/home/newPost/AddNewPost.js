@@ -3,19 +3,19 @@ import { Image, SafeAreaView } from 'react-native'
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import FormikPostUploader from './FormikPostUploader'
 
-const AddNewPost = () => {
+const AddNewPost = ({navigation}) => {
     return (
-        <View>
-            <Header/>
-            <FormikPostUploader/>
-        </View>
+        <SafeAreaView>
+            <Header navigation={navigation} />
+            <FormikPostUploader navigation={navigation}/>
+        </SafeAreaView>
     
     )
 }
 
-const Header = () => (
+const Header = ({navigation}) => (
         <View style={styles.headerContainer}>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={() => navigation.goBack()} >
                 <Image
                     source={{uri: "https://blogger.googleusercontent.com/img/a/AVvXsEhv8UXT3xM5xq3T7WMUL1Nt4hryYoXvf8IONzmzAGsbA1Kbk1-cOjOKnF9sg00HEWpU6xdePTvM9s8FdMYm8KisYH54AcvmHr68S5RzXUiSpFPd_RqQudVSCuUfKKQNx0RQw9dtKosRx_QEt14fd0GZU3lzJQIVmC23S0s3RxrNmNjgSs1zbhEUagBY=s320"}}
                     style={{width: 35, height: 35 }}
