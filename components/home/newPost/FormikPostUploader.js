@@ -6,8 +6,8 @@ import { Image } from 'react-native';
 import { Divider } from 'react-native-elements';
 import * as ImagePicker from "expo-image-picker"
 import { TouchableOpacity } from 'react-native';
-import { useWindowDimensions } from 'react-native';
-
+// import { useWindowDimensions } from 'react-native';
+import validUrl from "valid-url"
 
 const PLACEHOLDER_IMG = 'https://images.pexels.com/photos/674010/pexels-photo-674010.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'
 
@@ -58,7 +58,7 @@ const FormikPostUploader = ({navigation}) => {
                 <View style={styles.container}>
                 <TouchableOpacity onPress={handleImagePress}>
                     <Image
-                        source={{uri: thumbnailURL ? thumbnailURL : PLACEHOLDER_IMG}}
+                        source={{uri: validUrl.isUri(thumbnailURL) ? thumbnailURL : PLACEHOLDER_IMG}}
                         style={{height: 100, width: 100}}                    
                     />
                 </TouchableOpacity>
