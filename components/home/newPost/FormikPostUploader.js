@@ -6,8 +6,9 @@ import { Image } from 'react-native';
 import { Divider } from 'react-native-elements';
 import * as ImagePicker from "expo-image-picker"
 import { TouchableOpacity } from 'react-native';
-// import { useWindowDimensions } from 'react-native';
+import { useWindowDimensions } from 'react-native';
 import validUrl from "valid-url"
+
 
 const PLACEHOLDER_IMG = 'https://images.pexels.com/photos/674010/pexels-photo-674010.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'
 
@@ -16,13 +17,14 @@ const uploadPostSchema = Yup.object().shape({
     caption: Yup.string().max(2200, "Caption has reached the charcter limit."),
 })
 
-const handleImagePress = () => {
-    styles.activeImage;
-}
 
 
 const FormikPostUploader = ({navigation}) => {
     const [thumbnailURL, setThumbnailURL] = useState(PLACEHOLDER_IMG)
+    const { width, height} = useWindowDimensions("window");
+    const handleImagePress = () => {
+        styles.activeImage;
+    }
     
     const pickImage = async () => {
         // No permissions request is necessary for launching the image library
@@ -56,10 +58,10 @@ const FormikPostUploader = ({navigation}) => {
             {({handleBlur, handleSubmit, handleChange, values, errors, isValid}) => 
             <>
                 <View style={styles.container}>
-                <TouchableOpacity onPress={handleImagePress}>
+                <TouchableOpacity>
                     <Image
                         source={{uri: validUrl.isUri(thumbnailURL) ? thumbnailURL : PLACEHOLDER_IMG}}
-                        style={{height: 100, width: 100}}                    
+                        style={[styles.image, {width: 100, height: 100}]}                    
                     />
                 </TouchableOpacity>
                 <View style={{flex: 1, marginLeft:10 }}>
@@ -104,7 +106,6 @@ const FormikPostUploader = ({navigation}) => {
 export default FormikPostUploader
 
 const styles = StyleSheet.create({
-    // const {height, width} = useWindowDimensions(),
     bottomContainer: {
         marginHorizontal: 15,
     },
@@ -113,5 +114,4 @@ const styles = StyleSheet.create({
         flexDirection: "row",
         justifyContent: "space-between",
     },
-    
 })
